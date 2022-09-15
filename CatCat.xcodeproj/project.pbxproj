@@ -9,21 +9,53 @@
 /* Begin PBXBuildFile section */
 		6A25DE6A28CCCBB700698431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25DE6928CCCBB700698431 /* AppDelegate.swift */; };
 		6A25DE6C28CCCBB700698431 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25DE6B28CCCBB700698431 /* SceneDelegate.swift */; };
-		6A25DE6E28CCCBB700698431 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25DE6D28CCCBB700698431 /* ViewController.swift */; };
-		6A25DE7128CCCBB700698431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A25DE6F28CCCBB700698431 /* Main.storyboard */; };
 		6A25DE7328CCCBB700698431 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A25DE7228CCCBB700698431 /* Assets.xcassets */; };
 		6A25DE7628CCCBB700698431 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A25DE7428CCCBB700698431 /* LaunchScreen.storyboard */; };
+		6A25DECE28CD901A00698431 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25DECC28CD901A00698431 /* FavoriteViewController.swift */; };
+		6A25DECF28CD901A00698431 /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A25DECD28CD901A00698431 /* FavoriteViewController.xib */; };
+		6A25DED228CD903500698431 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25DED028CD903500698431 /* MyViewController.swift */; };
+		6A25DED328CD903500698431 /* MyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A25DED128CD903500698431 /* MyViewController.xib */; };
+		6A25DED528CD905900698431 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25DED428CD905900698431 /* TabBarController.swift */; };
+		6A25DED828CD9E6000698431 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25DED628CD9E6000698431 /* MainViewController.swift */; };
+		6A25DED928CD9E6000698431 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A25DED728CD9E6000698431 /* MainViewController.xib */; };
+		6A2E034A28D34D9B00E91C8A /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2E034928D34D9B00E91C8A /* FavoriteRouter.swift */; };
+		6A8CD65A28D31CD500FC6909 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8CD65928D31CD500FC6909 /* Constants.swift */; };
+		6A8CD65D28D31DCC00FC6909 /* CHTCollectionViewWaterfallLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 6A8CD65C28D31DCC00FC6909 /* CHTCollectionViewWaterfallLayout */; };
+		6A8CD65F28D31DCC00FC6909 /* CHTCollectionViewWaterfallLayoutObjC in Frameworks */ = {isa = PBXBuildFile; productRef = 6A8CD65E28D31DCC00FC6909 /* CHTCollectionViewWaterfallLayoutObjC */; };
+		6A8CD66228D31DE400FC6909 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6A8CD66128D31DE400FC6909 /* Alamofire */; };
+		6A8CD66528D3202A00FC6909 /* CatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8CD66328D3202A00FC6909 /* CatsCollectionViewCell.swift */; };
+		6A8CD66628D3202A00FC6909 /* CatsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A8CD66428D3202A00FC6909 /* CatsCollectionViewCell.xib */; };
+		6A8CD66828D3281200FC6909 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8CD66728D3281200FC6909 /* AlamofireManager.swift */; };
+		6A8CD66A28D3299000FC6909 /* BaseInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8CD66928D3299000FC6909 /* BaseInterceptor.swift */; };
+		6A8CD66C28D3369500FC6909 /* AlamofireLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8CD66B28D3369500FC6909 /* AlamofireLogger.swift */; };
+		6A8CD66E28D3384F00FC6909 /* ImageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8CD66D28D3384F00FC6909 /* ImageRouter.swift */; };
+		6A8CD67228D3402C00FC6909 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6A8CD67128D3402C00FC6909 /* SDWebImage */; };
+		6A8CD67428D3409D00FC6909 /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8CD67328D3409D00FC6909 /* CatModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6A25DE6628CCCBB700698431 /* CatCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A25DE6928CCCBB700698431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A25DE6B28CCCBB700698431 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6A25DE6D28CCCBB700698431 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6A25DE7028CCCBB700698431 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A25DE7228CCCBB700698431 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A25DE7528CCCBB700698431 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A25DE7728CCCBB700698431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A25DECC28CD901A00698431 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		6A25DECD28CD901A00698431 /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
+		6A25DED028CD903500698431 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		6A25DED128CD903500698431 /* MyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyViewController.xib; sourceTree = "<group>"; };
+		6A25DED428CD905900698431 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		6A25DED628CD9E6000698431 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		6A25DED728CD9E6000698431 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		6A2E034928D34D9B00E91C8A /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
+		6A8CD65928D31CD500FC6909 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6A8CD66328D3202A00FC6909 /* CatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsCollectionViewCell.swift; sourceTree = "<group>"; };
+		6A8CD66428D3202A00FC6909 /* CatsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatsCollectionViewCell.xib; sourceTree = "<group>"; };
+		6A8CD66728D3281200FC6909 /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
+		6A8CD66928D3299000FC6909 /* BaseInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInterceptor.swift; sourceTree = "<group>"; };
+		6A8CD66B28D3369500FC6909 /* AlamofireLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireLogger.swift; sourceTree = "<group>"; };
+		6A8CD66D28D3384F00FC6909 /* ImageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRouter.swift; sourceTree = "<group>"; };
+		6A8CD67328D3409D00FC6909 /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +63,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A8CD66228D31DE400FC6909 /* Alamofire in Frameworks */,
+				6A8CD65F28D31DCC00FC6909 /* CHTCollectionViewWaterfallLayoutObjC in Frameworks */,
+				6A8CD67228D3402C00FC6909 /* SDWebImage in Frameworks */,
+				6A8CD65D28D31DCC00FC6909 /* CHTCollectionViewWaterfallLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +92,77 @@
 		6A25DE6828CCCBB700698431 /* CatCat */ = {
 			isa = PBXGroup;
 			children = (
+				6A8CD65928D31CD500FC6909 /* Constants.swift */,
+				6A8CD65828D31CC300FC6909 /* API */,
+				6A25DECA28CD8F1A00698431 /* Model */,
+				6A25DECB28CD8F2500698431 /* View */,
+				6A25DEC928CD8EF000698431 /* Controller */,
 				6A25DE6928CCCBB700698431 /* AppDelegate.swift */,
 				6A25DE6B28CCCBB700698431 /* SceneDelegate.swift */,
-				6A25DE6D28CCCBB700698431 /* ViewController.swift */,
-				6A25DE6F28CCCBB700698431 /* Main.storyboard */,
 				6A25DE7228CCCBB700698431 /* Assets.xcassets */,
 				6A25DE7428CCCBB700698431 /* LaunchScreen.storyboard */,
 				6A25DE7728CCCBB700698431 /* Info.plist */,
 			);
 			path = CatCat;
+			sourceTree = "<group>";
+		};
+		6A25DEC928CD8EF000698431 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6A25DED428CD905900698431 /* TabBarController.swift */,
+				6A25DED628CD9E6000698431 /* MainViewController.swift */,
+				6A25DECC28CD901A00698431 /* FavoriteViewController.swift */,
+				6A25DED028CD903500698431 /* MyViewController.swift */,
+				6A8CD66F28D33F6600FC6909 /* Cell */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6A25DECA28CD8F1A00698431 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6A8CD67328D3409D00FC6909 /* CatModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6A25DECB28CD8F2500698431 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A25DED728CD9E6000698431 /* MainViewController.xib */,
+				6A25DECD28CD901A00698431 /* FavoriteViewController.xib */,
+				6A25DED128CD903500698431 /* MyViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6A2E034B28D34DA300E91C8A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				6A8CD66D28D3384F00FC6909 /* ImageRouter.swift */,
+				6A2E034928D34D9B00E91C8A /* FavoriteRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		6A8CD65828D31CC300FC6909 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6A8CD66728D3281200FC6909 /* AlamofireManager.swift */,
+				6A8CD66928D3299000FC6909 /* BaseInterceptor.swift */,
+				6A8CD66B28D3369500FC6909 /* AlamofireLogger.swift */,
+				6A2E034B28D34DA300E91C8A /* Router */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		6A8CD66F28D33F6600FC6909 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6A8CD66328D3202A00FC6909 /* CatsCollectionViewCell.swift */,
+				6A8CD66428D3202A00FC6909 /* CatsCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +181,12 @@
 			dependencies = (
 			);
 			name = CatCat;
+			packageProductDependencies = (
+				6A8CD65C28D31DCC00FC6909 /* CHTCollectionViewWaterfallLayout */,
+				6A8CD65E28D31DCC00FC6909 /* CHTCollectionViewWaterfallLayoutObjC */,
+				6A8CD66128D31DE400FC6909 /* Alamofire */,
+				6A8CD67128D3402C00FC6909 /* SDWebImage */,
+			);
 			productName = CatCat;
 			productReference = 6A25DE6628CCCBB700698431 /* CatCat.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +215,11 @@
 				Base,
 			);
 			mainGroup = 6A25DE5D28CCCBB700698431;
+			packageReferences = (
+				6A8CD65B28D31DCC00FC6909 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */,
+				6A8CD66028D31DE400FC6909 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				6A8CD67028D3402C00FC6909 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 6A25DE6728CCCBB700698431 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +236,10 @@
 			files = (
 				6A25DE7628CCCBB700698431 /* LaunchScreen.storyboard in Resources */,
 				6A25DE7328CCCBB700698431 /* Assets.xcassets in Resources */,
-				6A25DE7128CCCBB700698431 /* Main.storyboard in Resources */,
+				6A25DED928CD9E6000698431 /* MainViewController.xib in Resources */,
+				6A25DECF28CD901A00698431 /* FavoriteViewController.xib in Resources */,
+				6A25DED328CD903500698431 /* MyViewController.xib in Resources */,
+				6A8CD66628D3202A00FC6909 /* CatsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +250,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A25DE6E28CCCBB700698431 /* ViewController.swift in Sources */,
+				6A25DED828CD9E6000698431 /* MainViewController.swift in Sources */,
+				6A8CD67428D3409D00FC6909 /* CatModel.swift in Sources */,
+				6A8CD66828D3281200FC6909 /* AlamofireManager.swift in Sources */,
+				6A8CD66528D3202A00FC6909 /* CatsCollectionViewCell.swift in Sources */,
 				6A25DE6A28CCCBB700698431 /* AppDelegate.swift in Sources */,
+				6A25DECE28CD901A00698431 /* FavoriteViewController.swift in Sources */,
+				6A2E034A28D34D9B00E91C8A /* FavoriteRouter.swift in Sources */,
+				6A25DED228CD903500698431 /* MyViewController.swift in Sources */,
+				6A8CD66C28D3369500FC6909 /* AlamofireLogger.swift in Sources */,
+				6A8CD66A28D3299000FC6909 /* BaseInterceptor.swift in Sources */,
+				6A8CD66E28D3384F00FC6909 /* ImageRouter.swift in Sources */,
+				6A8CD65A28D31CD500FC6909 /* Constants.swift in Sources */,
+				6A25DED528CD905900698431 /* TabBarController.swift in Sources */,
 				6A25DE6C28CCCBB700698431 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +270,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6A25DE6F28CCCBB700698431 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6A25DE7028CCCBB700698431 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6A25DE7428CCCBB700698431 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +407,6 @@
 				INFOPLIST_FILE = CatCat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +434,6 @@
 				INFOPLIST_FILE = CatCat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -358,6 +471,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6A8CD65B28D31DCC00FC6909 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chiahsien/CHTCollectionViewWaterfallLayout";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		6A8CD66028D31DE400FC6909 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		6A8CD67028D3402C00FC6909 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6A8CD65C28D31DCC00FC6909 /* CHTCollectionViewWaterfallLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A8CD65B28D31DCC00FC6909 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */;
+			productName = CHTCollectionViewWaterfallLayout;
+		};
+		6A8CD65E28D31DCC00FC6909 /* CHTCollectionViewWaterfallLayoutObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A8CD65B28D31DCC00FC6909 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */;
+			productName = CHTCollectionViewWaterfallLayoutObjC;
+		};
+		6A8CD66128D31DE400FC6909 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A8CD66028D31DE400FC6909 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		6A8CD67128D3402C00FC6909 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A8CD67028D3402C00FC6909 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6A25DE5E28CCCBB700698431 /* Project object */;
 }

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteViewController" customModule="CatCat" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="MQg-ex-s9K" id="XX0-Kg-3X5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +19,26 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MQg-ex-s9K">
+                    <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gvb-FC-tlA">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MQg-ex-s9K" secondAttribute="trailing" id="XLB-xK-f41"/>
+                <constraint firstItem="MQg-ex-s9K" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XUP-aS-0WK"/>
+                <constraint firstItem="MQg-ex-s9K" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Zmy-Sm-Iqz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MQg-ex-s9K" secondAttribute="bottom" id="fFd-EN-CMo"/>
+            </constraints>
             <point key="canvasLocation" x="151" y="107"/>
         </view>
     </objects>

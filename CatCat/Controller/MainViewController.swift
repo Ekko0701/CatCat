@@ -88,10 +88,14 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CatsCollectionViewCell", for: indexPath) as? CatsCollectionViewCell {
             
+            cell.cellDelegate = self
+            
             cell.imformationLabel.text = "\(indexPath.row)번 Cell"
             
             //  Set catImage Using 'SDWebImage' Library
-            cell.catImage.sd_setImage(with: URL(string: catArray[indexPath.row].url), placeholderImage: UIImage(named: "placeholder\(indexPath.row).png"))
+            cell.catImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            
+            cell.catImage.sd_setImage(with: URL(string: catArray[indexPath.row].url))
             
             return cell
         }
@@ -117,5 +121,9 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
  
 }
 
+extension MainViewController: PostFavoriteCatDelegate {
+    func favoriteButtonPressed() {
+        print("MainViewController - favoriteButtonPressed() called")
+    }
 
-
+}

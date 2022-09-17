@@ -166,6 +166,3 @@ extension FavoriteViewController: CHTCollectionViewDelegateWaterfallLayout {
         return 2
     }
 }
-
-
-

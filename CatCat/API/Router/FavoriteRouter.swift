@@ -21,7 +21,7 @@ enum FavoriteRouter: URLRequestConvertible {
     
     //  Cases
     case getFavorites
-    case postFavorites
+    case postFavorites(id: String)
     
     //  Set BaseURL
     var baseURL: URL {
@@ -48,7 +48,27 @@ enum FavoriteRouter: URLRequestConvertible {
         }
     }
         
-    //  Favorite Router has no Parameters only 'Headers'
+    //  Favorite Router has no Parameters only 'Headers' & Optional 'Body'
+    
+    //  Setup Body ( exact JSON Encoding)
+//    var body: Data? {
+//        switch self {
+//        case .getFavorites:
+//            return nil
+//        case let .postFavorites(id):
+//            let param = ImageInfo(image_id: id) // 1. 이미지의 Id를 받아와서 ImageInfo Codable 구조체 생성
+//            return param.toData //  2. post 할때는 body로 들어가야 하니 toData( encodable extension)으로 Json data 형식으로 변경한다.
+//        }
+//    }
+    
+    var parameters: [String: String] {
+        switch self {
+        case .getFavorites:
+            return [:]
+        case let .postFavorites(id):
+            return ["image_id" : id]
+        }
+    }
     
     //  SetUp Request
     func asURLRequest() throws -> URLRequest {
@@ -57,6 +77,23 @@ enum FavoriteRouter: URLRequestConvertible {
         var request = URLRequest(url: url)
         
         request.method = method
+        
+        //  http body
+        switch self {
+        case .getFavorites:
+            request.httpBody = nil
+        case .postFavorites:
+            print("바디 - \(parameters)")
+            do {
+                //request.httpBody = try JSONEncoder().encode(parameters)
+                request.httpBody = try JSONEncoding.default.encode(request, with: parameters).httpBody
+            } catch {
+                // Handle Error
+            }
+            
+            //request = try JSONParameterEncoder().encode(parameters, into: request)
+            //return request
+        }
         
         return request
     }

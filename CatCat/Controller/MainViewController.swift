@@ -80,6 +80,7 @@ extension MainViewController: UICollectionViewDelegate {
     
 }
 
+
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return catArray.count
@@ -92,6 +93,8 @@ extension MainViewController: UICollectionViewDataSource {
             
             cell.imformationLabel.text = "\(indexPath.row)번 Cell"
             
+            cell.favoriteButton.tag = indexPath.row
+        
             //  Set catImage Using 'SDWebImage' Library
             cell.catImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
             
@@ -103,9 +106,11 @@ extension MainViewController: UICollectionViewDataSource {
     }
 }
 
+
+//MARK: - CHTCollectionViewDelegateWaterfallLayout
 extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //let imageSize = catArray[indexPath.row].
+        
         let width = catArray[indexPath.row].width
         let height = catArray[indexPath.row].height
         
@@ -121,9 +126,35 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
  
 }
 
+//MARK: - PostFavoriteCatDelegate - API .POST Call
 extension MainViewController: PostFavoriteCatDelegate {
-    func favoriteButtonPressed() {
+    func favoriteButtonPressed(indexPath: Int) {
         print("MainViewController - favoriteButtonPressed() called")
+        print("MainViewController - \(indexPath)번째 Cell을 눌렀습니다.")
+        print("MainViewController - \(catArray[indexPath].id)")
+        
+        favoritePostRequestAPI(imageId: catArray[indexPath].id)
     }
-
+    
+//    func favoriteButtonPressed() {
+//        print("MainViewController - favoriteButtonPressed() called")
+//        favoritePostRequestAPI(imageId: "d0j")
+//    }
+    
+    func favoritePostRequestAPI(imageId: String) {
+        var urlToCall: URLRequestConvertible?
+        
+        urlToCall = FavoriteRouter.postFavorites(id: imageId)
+        
+        if let urlConvertible = urlToCall {
+            AlamofireManager
+                .shared
+                .session
+                .request(urlConvertible)
+                .validate()
+                .responseData { response in
+                debugPrint(response)
+            }
+        }
+    }
 }

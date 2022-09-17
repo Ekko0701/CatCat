@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PostFavoriteCatDelegate: AnyObject {
-    func favoriteButtonPressed()
+    func favoriteButtonPressed(indexPath: Int)
 }
 
 class CatsCollectionViewCell: UICollectionViewCell {
@@ -34,7 +34,8 @@ class CatsCollectionViewCell: UICollectionViewCell {
 
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         print("CatsCollectionViewCell - favoriteButtonPressed()")
-        cellDelegate?.favoriteButtonPressed()
+        //print(sender.tag)
+        cellDelegate?.favoriteButtonPressed(indexPath: sender.tag)
     
     }
 }

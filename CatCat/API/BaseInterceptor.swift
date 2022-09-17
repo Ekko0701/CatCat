@@ -19,13 +19,14 @@ class BaseInterceptor: RequestInterceptor {
         request.addValue(API.X_API_KEY, forHTTPHeaderField: "x-api-key")
         
         //  Add Common Parameter
-        var commonParameters = [String: String]()
-        
-        do {
-            request = try URLEncodedFormParameterEncoder().encode(commonParameters, into: request)
-        } catch {
-            print(error.localizedDescription)
-        }
+        //  다음 코드를 사용하면 다른 api 호출할때 commonParameter만 들어가버린다.
+//        var commonParameters = [String: String]()
+//        
+//        do {
+//            request = try URLEncodedFormParameterEncoder().encode(commonParameters, into: request)
+//        } catch {
+//            print(error.localizedDescription)
+//        }
         
         completion(.success(request)) //값이 수정된 request를 보내준다.
     }

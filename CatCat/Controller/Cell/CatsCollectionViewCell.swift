@@ -19,6 +19,8 @@ class CatsCollectionViewCell: UICollectionViewCell {
     
     var cellDelegate: PostFavoriteCatDelegate?
     
+    var isFavoriteCell: Bool = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -34,7 +36,10 @@ class CatsCollectionViewCell: UICollectionViewCell {
 
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         print("CatsCollectionViewCell - favoriteButtonPressed()")
-        //print(sender.tag)
+        
+        
+        //sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        
         cellDelegate?.favoriteButtonPressed(indexPath: sender.tag)
     
     }

@@ -22,6 +22,7 @@ enum FavoriteRouter: URLRequestConvertible {
     //  Cases
     case getFavorites
     case postFavorites(id: String)
+    case deleteFavorites(favourite_id: String)
     
     //  Set BaseURL
     var baseURL: URL {
@@ -35,16 +36,20 @@ enum FavoriteRouter: URLRequestConvertible {
             return .get
         case .postFavorites:
             return .post
+        case .deleteFavorites:
+            return .delete
         }
     }
     
-    //  Setup End Point
+    //  Setup End Point ( Path )
     var endPoint: String {
         switch self {
         case .getFavorites:
             return ""
         case .postFavorites:
             return ""
+        case let .deleteFavorites(favourite_id):
+            return favourite_id
         }
     }
         
@@ -65,8 +70,12 @@ enum FavoriteRouter: URLRequestConvertible {
         switch self {
         case .getFavorites:
             return [:]
+            
         case let .postFavorites(id):
             return ["image_id" : id]
+            
+        case .deleteFavorites:
+            return [:]
         }
     }
     
@@ -82,17 +91,17 @@ enum FavoriteRouter: URLRequestConvertible {
         switch self {
         case .getFavorites:
             request.httpBody = nil
+            
         case .postFavorites:
-            print("바디 - \(parameters)")
             do {
                 //request.httpBody = try JSONEncoder().encode(parameters)
                 request.httpBody = try JSONEncoding.default.encode(request, with: parameters).httpBody
             } catch {
                 // Handle Error
             }
-            
-            //request = try JSONParameterEncoder().encode(parameters, into: request)
-            //return request
+
+        case .deleteFavorites:
+            request.httpBody = nil
         }
         
         return request

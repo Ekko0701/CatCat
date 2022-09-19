@@ -25,9 +25,14 @@ class FavoriteViewController: UIViewController {
         
         print("FavoriteViewController - viewDidLoad()")
         setUpCollectionView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("FavoriteViewController - viewWillAppear()")
         requestAPI()
     }
-
+    
     func setUpCollectionView() {
         
         //  Attach Delegate and DataSourde
@@ -46,6 +51,7 @@ class FavoriteViewController: UIViewController {
         self.collectionView.collectionViewLayout = layout
     }
     
+    //MARK: .GET Favourite
     func requestAPI() {
         var urlToCall: URLRequestConvertible?
         
@@ -61,7 +67,7 @@ class FavoriteViewController: UIViewController {
                     switch response.result {
                         
                     case .success(let result):
-                        
+                        self.favoriteCatArray.removeAll()
                         self.favoriteCatArray.append(contentsOf: result)
                         self.collectionView.reloadData()
                         
@@ -70,34 +76,6 @@ class FavoriteViewController: UIViewController {
                     }
                 
                 }
-        }
-    }
-    
-    // 📌 Test
-    //  https://medium.com/geekculture/find-image-dimensions-from-url-in-ios-swift-a186297e9922
-//    func imageDimenssions(url: String) -> String {
-//
-//    }
-    
-    // 📌 Test
-    // url의 image 사이즈를 반환하는 메소드
-    func sizeOfImageAt(url: URL) -> CGSize? {
-        // with CGImageSource we avoid loading the whole image into memory
-    
-        guard let source = CGImageSourceCreateWithURL(url as CFURL, nil) else {
-            return nil
-        }
-        
-        let propertiesOptions = [kCGImageSourceShouldCache: false] as CFDictionary
-        guard let properties = CGImageSourceCopyPropertiesAtIndex(source, 0, propertiesOptions) as? [CFString: Any] else {
-            return nil
-        }
-        
-        if let width = properties[kCGImagePropertyPixelWidth] as? CGFloat,
-           let height = properties[kCGImagePropertyPixelHeight] as? CGFloat {
-            return CGSize(width: width, height: height)
-        } else {
-            return nil
         }
     }
 }
@@ -114,36 +92,31 @@ extension FavoriteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_IDENTIFIER.FAVORITE_CELL, for: indexPath) as? FavoriteCatsCollectionViewCell {
             
+            // Attach Delegate
+            cell.cellDelegate = self
+            
+            cell.favoriteButton.tag = indexPath.row //favoriteCatArray 인덱스 접근을 위해 버튼 태그 설정
+            
+            if favoriteCatArray[indexPath.row].isFavorite == nil || favoriteCatArray[indexPath.row].isFavorite == true {
+                cell.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            } else {
+                cell.favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
+            
+            // Set Image Indicator
             cell.catImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
             
+            // Check Url Image Size
             cell.catImage.sd_setImage(with: URL(string: favoriteCatArray[indexPath.row].image.url)) { (image, error, _, _) in
                 if (error != nil) {
                     cell.catImage.image = UIImage(systemName: "circles.hexagonpath.fill")
                 } else {
-                    print("성공 - \(image?.size)")
                     cell.catImage.image = image
-                    self.favoriteCatArray[indexPath.row].image.width = 500
+                    self.favoriteCatArray[indexPath.row].image.width = image?.size.width
                     self.favoriteCatArray[indexPath.row].image.height = image?.size.height
                 }
             }
-            
-//            cell.catImage.sd_setImage(with: URL(string: favoriteCatArray[indexPath.row].image.url)) { (image, err, type, url) in
-//
-//                // 🚨 Optional 수정 필요 🚨 //
-//                self.favoriteCatArray[indexPath.row].image.width = image?.size.width
-//                self.favoriteCatArray[indexPath.row].image.height = image?.size.height
-//
-//                print("UICollectionViewDataSource - \(self.favoriteCatArray)")
-//            }
-            
-//            cell.catImage.sd_setImage(with: URL(string: favoriteCatArray[indexPath.row].image.url)) { (image, Error, _, _) in
-//                //print("이미지 사이즈 입니다. \(image!.size)")
-//                // 🚨 Optional 수정 필요 🚨 //
-//                self.favoriteCatArray[indexPath.row].image.width = image?.size.width
-//                self.favoriteCatArray[indexPath.row].image.height = image?.size.height
-//            }
-            
-            
+         
             return cell
         }
         
@@ -154,7 +127,7 @@ extension FavoriteViewController: UICollectionViewDataSource {
 extension FavoriteViewController: CHTCollectionViewDelegateWaterfallLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        // 🚨 Optional 수정 필요 🚨 //
+
         let width = favoriteCatArray[indexPath.row].image.width ?? 100
         let height = favoriteCatArray[indexPath.row].image.height ?? 100
         
@@ -166,3 +139,83 @@ extension FavoriteViewController: CHTCollectionViewDelegateWaterfallLayout {
         return 2
     }
 }
+
+extension FavoriteViewController: FavoriteDelegate {
+    func favoriteButtonPressed(indexPath: Int) {
+        print("FavoriteViewController - favoriteButtonPressed()")
+        
+        if favoriteCatArray[indexPath].isFavorite == true || favoriteCatArray[indexPath].isFavorite == nil {
+            // .Delete
+            favoriteDeleteRequestAPI(favourite_id: String(favoriteCatArray[indexPath].id))
+            favoriteCatArray[indexPath].isFavorite = false
+        } else {
+            //  .POST
+            favoritePostRequestAPI(imageId: favoriteCatArray[indexPath].image_id)
+            favoriteCatArray[indexPath].isFavorite = true
+        }
+        
+        
+        // 선택한 cell만 reload
+        let indexPaths: [IndexPath] = [IndexPath(row: indexPath, section: 0)]
+        self.collectionView.reloadItems(at: indexPaths)
+    }
+    
+    //MARK: .DELETE Favorite
+    func favoriteDeleteRequestAPI(favourite_id: String) {
+        var urlToCall: URLRequestConvertible?
+
+        urlToCall = FavoriteRouter.deleteFavorites(favourite_id: favourite_id)
+        
+        if let urlConvertible = urlToCall {
+            AlamofireManager
+                .shared
+                .session
+                .request(urlConvertible)
+                .validate()
+                .responseData { response in
+                    print("FavoriteViewController - favoriteDeleteRequestAPI Called")
+                    print(response)
+                }
+        }
+    }
+    
+    //MARK: .POST Favorite
+    func favoritePostRequestAPI(imageId: String) {
+        var urlToCall: URLRequestConvertible?
+        
+        urlToCall = FavoriteRouter.postFavorites(id: imageId)
+        
+        if let urlConvertible = urlToCall {
+            AlamofireManager
+                .shared
+                .session
+                .request(urlConvertible)
+                .validate()
+                .responseDecodable(of: PostFavoriteResponse.self) { response in
+                    print("FavoriteViewController - .POST requeest called")
+                }
+        }
+    }
+}
+
+
+//  Delegate로 cell 내부의 버튼 이벤트를 FavoriteViewController에서 구현
+
+//  FavoriteView에서도 Delete API를 호출하자.
+//  버튼 default image는 heart.fill
+//
+
+//  View Will Appear에서 레이아웃을 설정하면 CHTColle... 라이브러리가 작동할까 ?
+
+
+//  에러 ))  .GET Favourite이 viewWillLoad에서 계속 호출됨. 배열에 계속 append함.
+
+/// Delete후에 바로 reload해서 cell을 없애지 말고
+/// 버튼 이미지만 변경하자. (ex. instagram) (.reloadItem 사용)
+
+
+
+
+
+///2022.09.19
+///- collectionVIew layout 다시 잡기

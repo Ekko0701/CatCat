@@ -15,6 +15,8 @@ struct Cats: Decodable {
     var url: String
     var width: Int?
     var height: Int?
+    var isFavorite: Bool? = false    //  favorite 여부
+    var favourite_id: String?       // delete를 위한 id 값
 }
 
 
@@ -26,6 +28,7 @@ struct FavoriteCats: Decodable {
     var image_id: String
     var created_at: String
     var image: FavoriteCatImage
+    var isFavorite: Bool? = true
     
 }
 
@@ -34,4 +37,11 @@ struct FavoriteCatImage: Decodable {
     var url: String
     var width: CGFloat?
     var height: CGFloat?
+}
+
+/// Favorite
+/// .POST
+struct PostFavoriteResponse: Decodable {
+    var message: String
+    var id: Int? 
 }

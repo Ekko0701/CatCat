@@ -132,7 +132,7 @@ extension FavoriteViewController: CHTCollectionViewDelegateWaterfallLayout {
         let height = favoriteCatArray[indexPath.row].image.height ?? 100
         
         
-        return CGSize(width: width, height: height)
+        return CGSize(width: width, height: width + 100)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, columnCountFor section: Int) -> Int {

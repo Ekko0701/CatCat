@@ -16,4 +16,5 @@ enum API {
 enum CELL_IDENTIFIER {
     static let CATS_CELL = "CatsCollectionViewCell"
     static let FAVORITE_CELL = "FavoriteCatsCollectionViewCell"
+    static let INDICATOR_VIEW = "IndicatorCollectionReusableView"
 }

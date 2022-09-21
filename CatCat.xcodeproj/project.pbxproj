@@ -31,6 +31,8 @@
 		6A8CD66E28D3384F00FC6909 /* ImageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8CD66D28D3384F00FC6909 /* ImageRouter.swift */; };
 		6A8CD67228D3402C00FC6909 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6A8CD67128D3402C00FC6909 /* SDWebImage */; };
 		6A8CD67428D3409D00FC6909 /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8CD67328D3409D00FC6909 /* CatModel.swift */; };
+		6A8FE60C28DAC08D00041DED /* IndicatorCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8FE60A28DAC08D00041DED /* IndicatorCollectionReusableView.swift */; };
+		6A8FE60D28DAC08D00041DED /* IndicatorCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A8FE60B28DAC08D00041DED /* IndicatorCollectionReusableView.xib */; };
 		6AE25BFE28D372F6000CBCDB /* CatsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE25BFD28D372F6000CBCDB /* CatsCollectionViewCell.xib */; };
 		6AE25C0128D37346000CBCDB /* FavoriteCatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE25BFF28D37346000CBCDB /* FavoriteCatsCollectionViewCell.swift */; };
 		6AE25C0228D37346000CBCDB /* FavoriteCatsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE25C0028D37346000CBCDB /* FavoriteCatsCollectionViewCell.xib */; };
@@ -59,6 +61,8 @@
 		6A8CD66B28D3369500FC6909 /* AlamofireLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireLogger.swift; sourceTree = "<group>"; };
 		6A8CD66D28D3384F00FC6909 /* ImageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRouter.swift; sourceTree = "<group>"; };
 		6A8CD67328D3409D00FC6909 /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
+		6A8FE60A28DAC08D00041DED /* IndicatorCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorCollectionReusableView.swift; sourceTree = "<group>"; };
+		6A8FE60B28DAC08D00041DED /* IndicatorCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndicatorCollectionReusableView.xib; sourceTree = "<group>"; };
 		6AE25BFD28D372F6000CBCDB /* CatsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatsCollectionViewCell.xib; sourceTree = "<group>"; };
 		6AE25BFF28D37346000CBCDB /* FavoriteCatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCatsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6AE25C0028D37346000CBCDB /* FavoriteCatsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCatsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 			children = (
 				6AE25BFD28D372F6000CBCDB /* CatsCollectionViewCell.xib */,
 				6AE25C0028D37346000CBCDB /* FavoriteCatsCollectionViewCell.xib */,
+				6A8FE60A28DAC08D00041DED /* IndicatorCollectionReusableView.swift */,
+				6A8FE60B28DAC08D00041DED /* IndicatorCollectionReusableView.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -254,6 +260,7 @@
 				6A25DE7628CCCBB700698431 /* LaunchScreen.storyboard in Resources */,
 				6AE25BFE28D372F6000CBCDB /* CatsCollectionViewCell.xib in Resources */,
 				6A25DE7328CCCBB700698431 /* Assets.xcassets in Resources */,
+				6A8FE60D28DAC08D00041DED /* IndicatorCollectionReusableView.xib in Resources */,
 				6A25DED928CD9E6000698431 /* MainViewController.xib in Resources */,
 				6AE25C0228D37346000CBCDB /* FavoriteCatsCollectionViewCell.xib in Resources */,
 				6A25DECF28CD901A00698431 /* FavoriteViewController.xib in Resources */,
@@ -281,6 +288,7 @@
 				6A8CD66C28D3369500FC6909 /* AlamofireLogger.swift in Sources */,
 				6A8CD66A28D3299000FC6909 /* BaseInterceptor.swift in Sources */,
 				6A8CD66E28D3384F00FC6909 /* ImageRouter.swift in Sources */,
+				6A8FE60C28DAC08D00041DED /* IndicatorCollectionReusableView.swift in Sources */,
 				6A8CD65A28D31CD500FC6909 /* Constants.swift in Sources */,
 				6A25DED528CD905900698431 /* TabBarController.swift in Sources */,
 				6A25DE6C28CCCBB700698431 /* SceneDelegate.swift in Sources */,

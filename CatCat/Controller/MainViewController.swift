@@ -18,15 +18,23 @@ class MainViewController: UIViewController {
     var catArray = [Cats]()
     
     //  .getCats Parameter Variable
-    var page: Int = 0
+    var page: Int = 1
     var limit: Int = 10
+    
+    //  Refresh Control
+    private var refreshControl = UIRefreshControl()
+    private var isRefreshing = false
+    
+    //  Infinite Scrolling
+    var isLoading = false
+    var loadingView: IndicatorCollectionReusableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MainViewController - viewDidLoad()")
         
         setUpCollectionView()
-        requestAPI()
+        requestAPI(requestPage: page)
     }
     
     func setUpCollectionView() {
@@ -37,6 +45,9 @@ class MainViewController: UIViewController {
         
         //  Register nibs
         collectionView.register(UINib(nibName: "CatsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CatsCollectionViewCell")
+
+        let loadingReusableNib = UINib(nibName: "IndicatorCollectionReusableView", bundle: nil)
+        collectionView.register(loadingReusableNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "IndicatorCollectionReusableView")
         
         //  Setup Layout
         let layout = CHTCollectionViewWaterfallLayout()
@@ -45,13 +56,33 @@ class MainViewController: UIViewController {
         layout.minimumInteritemSpacing = 5.0
         
         self.collectionView.collectionViewLayout = layout
+        
+        //  Add RefreshControl
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        collectionView.addSubview(refreshControl) // ???
+        collectionView.refreshControl = refreshControl
+    }
+    
+    @objc func refresh(sender: UIRefreshControl) {
+        print("MainViewController - refresh() called")
+        catArray.removeAll()
+        requestAPI(requestPage: 1)
+        page = 1
+        DispatchQueue.main.async {
+            self.isRefreshing = true
+            //self.requestAPI()
+            
+            self.collectionView.reloadData()
+            self.refreshControl.endRefreshing()
+            self.isRefreshing = false
+        }
     }
     
     // MARK: .GET Cat
-    func requestAPI() {
+    func requestAPI(requestPage: Int) {
         var urlToCall: URLRequestConvertible?
         
-        urlToCall = ImageRouter.getCats(limit: String(limit), page: String(page))
+        urlToCall = ImageRouter.getCats(limit: String(limit), page: String(requestPage))
         
         if let urlConvertible = urlToCall {
             AlamofireManager
@@ -64,7 +95,6 @@ class MainViewController: UIViewController {
                         
                     case .success(let result):
                         self.catArray.append(contentsOf: result)
-                        //print(self.catArray)
                         self.collectionView.reloadData()
                         
                     case .failure(let error):
@@ -73,12 +103,86 @@ class MainViewController: UIViewController {
                 }
         }
     }
-
+    
+    
 }
 
 //MARK: - CollectionView Delegate & DataSource
 extension MainViewController: UICollectionViewDelegate {
+    //MARK: Infinity Scroll 📌 완전 수정 필요
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
+//            page += 1
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+//
+//                print("인피니티\(self.page)")
+//                //self.requestAPI(requestPage: self.page + 1)
+//            })
+//        }
+//    }
     
+    //  MARK: Infinite Scrolling
+    
+    ///  Set Footer ( Indicator)
+    ///  collectionView의 layout이 CHTCollectionViewWaterfallLayout이기 때문에 아래 CHTCo...layout에서 높이를 정의해줘야 함.
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+//        if self.isLoading {
+//            return CGSize.zero
+//        } else {
+//            return CGSize(width: collectionView.bounds.size.width, height: 55)
+//        }
+//    }
+    
+    //  Set the reueable view in the CollectionView Footer
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionFooter {
+            let aFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CELL_IDENTIFIER.INDICATOR_VIEW, for: indexPath) as! IndicatorCollectionReusableView
+            loadingView = aFooterView
+            loadingView?.backgroundColor = UIColor.clear
+            return aFooterView
+        }
+        return UICollectionReusableView()
+    }
+    
+    //  Start the activityIndicator's animation when the footer appears
+    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+        if elementKind == UICollectionView.elementKindSectionFooter {
+            print("MainViewController - Indicator Start Animation")
+            self.loadingView?.activityIndicator.startAnimating()
+        }
+    }
+    
+    //  Stop the activityIndicator's animation when the footer disappears
+    func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
+        print("MainViewController - Indicator Stop Animation")
+        if elementKind == UICollectionView.elementKindSectionFooter {
+            self.loadingView?.activityIndicator.stopAnimating()
+        }
+    }
+    
+    //  Request API
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == catArray.count - 1 && !self.isLoading { // indexPath == catArray.count - 1 는 사용자의 스크롤이 마지막 indexPath임을 의미한다.
+            loadMoreData()
+        }
+    }
+    
+    func loadMoreData() {
+        if !self.isLoading {
+            self.isLoading = true
+            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
+                //sleep(3)
+                // API Request
+                self.page += 1
+                //self.requestAPI(requestPage: self.page)
+                DispatchQueue.main.async {
+                    self.requestAPI(requestPage: self.page)
+                    //self.collectionView.reloadData()
+                    self.isLoading = false
+                }
+            }
+        }
+    }
 }
 
 
@@ -129,6 +233,16 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, columnCountFor section: Int) -> Int {
         return 2
     }
+    
+
+    //  Set Indicator LoadingView ( = footer ) height
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, heightForFooterIn section: Int) -> CGFloat {
+        if self.isLoading {
+            return CGFloat(0)
+        } else {
+            return CGFloat(50)
+        }
+    }
  
 }
 
@@ -139,10 +253,6 @@ extension MainViewController: PostFavoriteCatDelegate {
     /// 선택한 버튼이 위치한 cell의 indexPath를 버튼의 tag로 설정 후
     /// catArray[indexPath.row]의 id를 즐겨찾기로 추가한다.
     func favoriteButtonPressed(indexPath: Int) {
-        print("MainViewController - favoriteButtonPressed() called")
-        print("MainViewController - \(indexPath)번째 Cell을 눌렀습니다.")
-        print("MainViewController - \(catArray[indexPath].id)")
-        
         if catArray[indexPath].isFavorite == false || catArray[indexPath].isFavorite == nil {
             favoritePostRequestAPI(imageId: catArray[indexPath].id, indexPath: indexPath) //  .POST API CALL
             catArray[indexPath].isFavorite = true

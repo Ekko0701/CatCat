@@ -160,7 +160,7 @@ extension MainViewController: UICollectionViewDelegate {
         }
     }
     
-    //  Request API
+    //MARK: Infinite Scrolling Request API
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == catArray.count - 1 && !self.isLoading { // indexPath == catArray.count - 1 는 사용자의 스크롤이 마지막 indexPath임을 의미한다.
             loadMoreData()
@@ -170,7 +170,7 @@ extension MainViewController: UICollectionViewDelegate {
     func loadMoreData() {
         if !self.isLoading {
             self.isLoading = true
-            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
+            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) { // 2sec delay
                 //sleep(3)
                 // API Request
                 self.page += 1

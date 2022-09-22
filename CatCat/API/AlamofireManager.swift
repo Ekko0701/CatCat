@@ -12,6 +12,8 @@ final class AlamofireManager {
     
     static let shared = AlamofireManager()
     
+    
+    
     //  Interceptor
     //  Add Header, Body, Parameter to Request
     let interceptors = Interceptor(interceptors: [BaseInterceptor()])

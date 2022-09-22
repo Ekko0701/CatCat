@@ -23,6 +23,7 @@ enum ImageRouter: URLRequestConvertible {
     //  Cases
     case getCats(limit: String, page: String)
     case getUploadedCats(limit: String, page: String)
+    case postCat
     
     //  Set BaseURL
     //  https://api.thecatapi.com/v1/images
@@ -37,6 +38,8 @@ enum ImageRouter: URLRequestConvertible {
             return .get
         case .getUploadedCats:
             return .get
+        case .postCat:
+            return .post
         }
     }
     
@@ -47,6 +50,8 @@ enum ImageRouter: URLRequestConvertible {
             return "search/"
         case .getUploadedCats:
             return ""
+        case .postCat:
+            return "upload"
         }
     }
     
@@ -63,6 +68,8 @@ enum ImageRouter: URLRequestConvertible {
                 "limit" : limit,
                 "page" : page,
             ]
+        case .postCat:
+            return [:]
         }
     }
     
@@ -80,6 +87,9 @@ enum ImageRouter: URLRequestConvertible {
             request = try URLEncodedFormParameterEncoder().encode(parameters, into: request)
         case .getUploadedCats:
             request = try URLEncodedFormParameterEncoder().encode(parameters, into: request)
+        case .postCat:
+            request = try URLEncodedFormParameterEncoder().encode(parameters, into: request)
+            //return request
         }
         
         return request

@@ -15,7 +15,21 @@ class BaseInterceptor: RequestInterceptor {
         
         //  Add Header
         var request = urlRequest
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        //  request.url = 로 분기 주기.
+        //print("인터셉터: \(request.url)")
+        var requestURL = request.url
+        switch (requestURL){
+        case URL(string: "https://api.thecatapi.com/v1/images/upload")!:
+            print("업로드지롱")
+            request.addValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
+            //request.addValue(API.X_API_KEY, forHTTPHeaderField: "x-api-key")
+        default:
+            print("디폴트지롱 \(requestURL)")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            //request.addValue(API.X_API_KEY, forHTTPHeaderField: "x-api-key")
+        }
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue(API.X_API_KEY, forHTTPHeaderField: "x-api-key")
         
         //  Add Common Parameter

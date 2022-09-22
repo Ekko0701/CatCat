@@ -8,8 +8,10 @@
 import Foundation
 import Alamofire
 
-//  Main
-//  .GET
+///  Main
+///  .GET
+///  My
+///  .GET
 struct Cats: Decodable {
     var id: String
     var url: String
@@ -20,8 +22,8 @@ struct Cats: Decodable {
 }
 
 
-//  Favorite
-//  .GET
+///  Favorite
+///  .GET
 struct FavoriteCats: Decodable {
     var id: Int
     var user_id: String
@@ -45,3 +47,8 @@ struct PostFavoriteResponse: Decodable {
     var message: String
     var id: Int? 
 }
+
+
+///  My
+/// .POST
+

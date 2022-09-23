@@ -19,6 +19,7 @@
 		6A25DED828CD9E6000698431 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25DED628CD9E6000698431 /* MainViewController.swift */; };
 		6A25DED928CD9E6000698431 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A25DED728CD9E6000698431 /* MainViewController.xib */; };
 		6A2E034A28D34D9B00E91C8A /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2E034928D34D9B00E91C8A /* FavoriteRouter.swift */; };
+		6A2EF27928DD89ED007526FD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2EF27828DD89ED007526FD /* UIColorExtension.swift */; };
 		6A55232528D59A1A00587D67 /* PostParamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A55232428D59A1A00587D67 /* PostParamModel.swift */; };
 		6A8CD65A28D31CD500FC6909 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8CD65928D31CD500FC6909 /* Constants.swift */; };
 		6A8CD65D28D31DCC00FC6909 /* CHTCollectionViewWaterfallLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 6A8CD65C28D31DCC00FC6909 /* CHTCollectionViewWaterfallLayout */; };
@@ -58,6 +59,7 @@
 		6A25DED628CD9E6000698431 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6A25DED728CD9E6000698431 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		6A2E034928D34D9B00E91C8A /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
+		6A2EF27828DD89ED007526FD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		6A55232428D59A1A00587D67 /* PostParamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostParamModel.swift; sourceTree = "<group>"; };
 		6A8CD65928D31CD500FC6909 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6A8CD66328D3202A00FC6909 /* CatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				6A8CD65928D31CD500FC6909 /* Constants.swift */,
+				6A2EF27828DD89ED007526FD /* UIColorExtension.swift */,
 				6A8CD65828D31CC300FC6909 /* API */,
 				6A25DECA28CD8F1A00698431 /* Model */,
 				6A25DECB28CD8F2500698431 /* View */,
@@ -308,6 +311,7 @@
 				6A25DE6A28CCCBB700698431 /* AppDelegate.swift in Sources */,
 				6A25DECE28CD901A00698431 /* FavoriteViewController.swift in Sources */,
 				6A2E034A28D34D9B00E91C8A /* FavoriteRouter.swift in Sources */,
+				6A2EF27928DD89ED007526FD /* UIColorExtension.swift in Sources */,
 				6A55232528D59A1A00587D67 /* PostParamModel.swift in Sources */,
 				6A25DED228CD903500698431 /* MyViewController.swift in Sources */,
 				6AD9A09328DADBD4007C0740 /* UploadCollectionViewCell.swift in Sources */,

@@ -35,23 +35,14 @@
                             <action selector="favoriteButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="kmu-ML-6pB"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5V-kz-2HX">
-                        <rect key="frame" x="8" y="219.66666666666666" width="160" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="bST-sd-H8v" secondAttribute="trailing" constant="8" id="13D-QC-gGd"/>
-                <constraint firstItem="n5V-kz-2HX" firstAttribute="centerY" secondItem="bST-sd-H8v" secondAttribute="centerY" id="1Ne-AU-8D5"/>
                 <constraint firstItem="BqI-VX-SuK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="FeY-i4-1X4"/>
                 <constraint firstItem="BqI-VX-SuK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Fwa-OR-hSh"/>
                 <constraint firstAttribute="trailing" secondItem="BqI-VX-SuK" secondAttribute="trailing" constant="8" id="TFp-oc-aoG"/>
-                <constraint firstItem="n5V-kz-2HX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="hRX-Px-laS"/>
-                <constraint firstItem="bST-sd-H8v" firstAttribute="leading" secondItem="n5V-kz-2HX" secondAttribute="trailing" constant="8" id="iqK-aa-WU5"/>
                 <constraint firstItem="bST-sd-H8v" firstAttribute="top" secondItem="BqI-VX-SuK" secondAttribute="bottom" constant="8" id="lfG-rW-Czu"/>
                 <constraint firstAttribute="bottom" secondItem="bST-sd-H8v" secondAttribute="bottom" constant="8" id="vMD-Ik-J3y"/>
             </constraints>
@@ -59,7 +50,6 @@
             <connections>
                 <outlet property="catImage" destination="BqI-VX-SuK" id="jDd-Ha-pt8"/>
                 <outlet property="favoriteButton" destination="bST-sd-H8v" id="Ma8-9d-Ifz"/>
-                <outlet property="imformationLabel" destination="n5V-kz-2HX" id="ZOO-VS-w0g"/>
             </connections>
             <point key="canvasLocation" x="-6" y="78"/>
         </collectionViewCell>

@@ -24,9 +24,10 @@ class CatsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.backgroundColor = .black
+        //self.backgroundColor = .black
         
         setUpImageView()
+        self.backgroundColor = .bgBlack
     }
     
     func setUpImageView() {

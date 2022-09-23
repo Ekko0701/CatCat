@@ -15,7 +15,9 @@ class MyViewController: UIViewController {
 
     @IBOutlet weak var myCollectionView: UICollectionView!
     
+    
     var imageToUpload: UIImage?
+    var imageToUploadCamera: UIImage?
     
     var page = 0
     var limit = 10
@@ -25,11 +27,18 @@ class MyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MyViewController - viewDidLoad()")
+        setUpView()
         setUpCollectionView()
         requestUploadedCat(page: page, limit: limit)
     }
     
+    func setUpView() {
+        view.backgroundColor = .bgBlack
+    }
+    
     func setUpCollectionView() {
+        myCollectionView.backgroundColor = .bgBlack
+        
         // Attach CollectionView Delegate & Datasource
         myCollectionView.delegate = self
         myCollectionView.dataSource = self
@@ -72,6 +81,8 @@ class MyViewController: UIViewController {
                 }
         }
     }
+    
+    
 }
 
 extension MyViewController: UICollectionViewDelegate {
@@ -79,7 +90,7 @@ extension MyViewController: UICollectionViewDelegate {
         if indexPath.row == catArray.count {
             print("MyViewController - didSelectItemAt() \(indexPath) Cell")
             //  Upload API
-            uploadCat()
+            actionSheetAlert()
         }
     }
     
@@ -108,7 +119,7 @@ extension MyViewController: UICollectionViewDataSource {
             }
         } else {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_IDENTIFIER.UPLOAD_CELL, for: indexPath) as? UploadCollectionViewCell {
-                cell.uploadLabel.text = "업로드 GO"
+                cell.uploadLabel.text = "업로드 (터치)"
                 return cell
             }
         }
@@ -143,8 +154,8 @@ extension MyViewController: PHPickerViewControllerDelegate {
                     
                     
                     //MARK: Router 이용하는 방법
-                    var urlToCall: URLRequestConvertible?
-                    urlToCall = ImageRouter.postCat
+                    //var urlToCall: URLRequestConvertible?
+                    //urlToCall = ImageRouter.postCat
 
 //                    if let urlConvertible = urlToCall {
 //                        AF.upload(multipartFormData: { (multipartFormData) in
@@ -186,26 +197,97 @@ extension MyViewController: PHPickerViewControllerDelegate {
                         print("Upload Progress: \(progress.fractionCompleted)")
                     }).responseString{ response in
                         debugPrint(response)
+                        DispatchQueue.main.async {
+                            self.myCollectionView.reloadData()
+                        }
                     }
                 }
             }
         } else {
-            print("엘스")
+            print("이미지 없음")
         }
         
     }
 }
 
+//MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
+extension MyViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func actionSheetAlert() {
+        let alert = UIAlertController(title: "선택", message: "업로드 방법을 선택하세요", preferredStyle: .actionSheet)
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let camera = UIAlertAction(title: "카메라", style: .default) { [ weak self] (_) in
+            self?.presentCamera()
+        }
+        let album = UIAlertAction(title: "앨범", style: .default) { [ weak self ] (_) in
+            //앨범을 선택했을 경우. (위의 PHPicker로 해주자. )
+            self?.uploadCat()
+        }
+        
+        alert.addAction(cancel)
+        alert.addAction(camera)
+        alert.addAction(album)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func presentCamera() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true // Editing = true로 해줬지만 원본 이미지만 들어감.
+        vc.cameraFlashMode = .off // flash off
+        
+        
+        present(vc, animated: true, completion: nil)
+    }
+    
+    //  image Picker에서 취소 버튼을 눌렀을 때 호출
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        dismiss(animated: true, completion: nil)
+//    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            
+            //MARK: Upload Image with Camera
+            let url = "https://api.thecatapi.com/v1/images/upload"
+            let header: HTTPHeaders = [
+                "Content-Type" : "multipart/form-data",
+                "x-api-key" : "live_ZocdxQNk5Nx7oA2glGrN2LxJoj9e4sD959ePwTrkmMqxQVrEap0nh5E7t6FPquHh"
+            ]
+
+            let imageData = image.jpegData(compressionQuality: 1)
+            AF.upload(multipartFormData: { (multipartFormData) in
+                multipartFormData.append(imageData!, withName: "file", fileName: "catImage.jpg", mimeType: "image/jpeg") // jpeg 파일로 업로드
+            }
+                      ,to: url
+                      ,method: .post
+                      ,headers: header
+                    )
+            .uploadProgress(queue:.main, closure: { progress in
+                print("Upload Progress: \(progress.fractionCompleted)")
+            }).responseString{ response in
+                debugPrint(response)
+            }
+        }
+        myCollectionView.reloadData() // 업로드 후 collectionView reload
+        dismiss(animated: true, completion: nil)
+    }
+
+}
+
+//MARK: - CHTCollectionViewDelegateWaterfallLayout
 extension MyViewController: CHTCollectionViewDelegateWaterfallLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.row == catArray.count {
-            return CGSize(width: 100, height: 100 + 200)
+            return CGSize(width: 25, height: 25)
         } else {
             //  업로드 셀
             let width = catArray[indexPath.row].width ?? 100
             let height = catArray[indexPath.row].height ?? 100
             
-            return CGSize(width: width, height: height + 50)
+            return CGSize(width: width, height: height + 200)
         }
     }
     

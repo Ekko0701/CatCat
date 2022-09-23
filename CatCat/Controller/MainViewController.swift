@@ -33,11 +33,17 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         print("MainViewController - viewDidLoad()")
         
+        setUpView()
         setUpCollectionView()
         requestAPI(requestPage: page)
     }
     
+    func setUpView() {
+        view.backgroundColor = .bgBlack
+    }
+    
     func setUpCollectionView() {
+        collectionView.backgroundColor = .bgBlack
         
         //  Attach Datasource and Delegate
         collectionView.delegate = self
@@ -195,8 +201,6 @@ extension MainViewController: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CatsCollectionViewCell", for: indexPath) as? CatsCollectionViewCell {
             
             cell.cellDelegate = self
-            
-            cell.imformationLabel.text = "\(indexPath.row)번 Cell"
             
             cell.favoriteButton.tag = indexPath.row
             

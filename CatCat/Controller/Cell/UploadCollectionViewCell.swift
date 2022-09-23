@@ -15,5 +15,4 @@ class UploadCollectionViewCell: UICollectionViewCell {
         uploadLabel.textColor = .white
         self.backgroundColor = .black
     }
-
 }

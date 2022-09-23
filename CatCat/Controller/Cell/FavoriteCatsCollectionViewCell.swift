@@ -21,7 +21,8 @@ class FavoriteCatsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.backgroundColor = .black
+        //self.backgroundColor = .black
+        self.backgroundColor = .bgBlack
         setUpImageView()
         setUpButton()
     }

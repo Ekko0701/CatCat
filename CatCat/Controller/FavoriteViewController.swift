@@ -24,8 +24,8 @@ class FavoriteViewController: UIViewController {
         super.viewDidLoad()
         
         print("FavoriteViewController - viewDidLoad()")
+        setUpView()
         setUpCollectionView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +33,12 @@ class FavoriteViewController: UIViewController {
         requestAPI()
     }
     
+    func setUpView() {
+        view.backgroundColor = .bgBlack
+    }
+    
     func setUpCollectionView() {
+        collectionView.backgroundColor = .bgBlack
         
         //  Attach Delegate and DataSourde
         collectionView.delegate = self
@@ -127,12 +132,7 @@ extension FavoriteViewController: UICollectionViewDataSource {
 extension FavoriteViewController: CHTCollectionViewDelegateWaterfallLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-
-        let width = favoriteCatArray[indexPath.row].image.width ?? 100
-        let height = favoriteCatArray[indexPath.row].image.height ?? 100
-        
-        
-        return CGSize(width: width, height: width + 100)
+        return CGSize(width: 100, height: 100)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, columnCountFor section: Int) -> Int {

@@ -1,15 +1,32 @@
 CatCat
 ======
-[The Cat API](https://thecatapi.com/)를 사용해 고양이 이미지를 보고, 즐겨찾기하고, 업로드할 수 있다.  
+[The Cat API](https://thecatapi.com/)를 사용  
+### Cats 탭
+* 고양이 이미지를 보여줌. (.GET)
+* 하트 버튼 터치시 즐겨찾기 추가 및 해제 가능. (.POST)
 
+### Favorite 탭
+* 즐겨찾기에 추가된 고양이 확인 가능 (.GET)
+* 하트 버튼 터치시 즐겨찾기 추가 및 해제 가능. (.POST)
+
+### My 탭
+* 사용자가 업로드한 고양이 사진 확인 가능 (.GET)
+* 업로드 버튼 터치시 Camera 및 갤러리를 통해 고양이 이미지 업로드 가능 (POST(upload))
  
 Features
 --------
 * Storybaord 사용
 * MVC 지향
-* CollectionView Refresh 구현
-* CollectionView Infinite Scrolling 구현
-    <img src = "![RPReplay_Final1664031490 (1)](https://user-images.githubusercontent.com/108163842/192105064-0c85673a-774a-4221-aa9e-9882d097b3d4.gif)">
+* CollectionView **Refresh**구현.  
+   
+<img width = "200" src = "https://user-images.githubusercontent.com/108163842/192106023-bdf2335a-b3e1-4927-8934-7ffc9bf087af.gif">
+
+
+* CollectionView **Infinite Scrolling** 구현  
+
+<img width = "200" src = "https://user-images.githubusercontent.com/108163842/192105064-0c85673a-774a-4221-aa9e-9882d097b3d4.gif">
+    
+      
 * Image Upload를 위해 UIImagePickerController()대신에 더 간결한 PHPicker를 사용함
 * PHPicker는 카메라를 지원하지 않기 때문에 UIImagePickerController도 사용함.
 

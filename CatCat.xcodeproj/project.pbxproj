@@ -34,6 +34,7 @@
 		6A8CD67428D3409D00FC6909 /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8CD67328D3409D00FC6909 /* CatModel.swift */; };
 		6A8FE60C28DAC08D00041DED /* IndicatorCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8FE60A28DAC08D00041DED /* IndicatorCollectionReusableView.swift */; };
 		6A8FE60D28DAC08D00041DED /* IndicatorCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A8FE60B28DAC08D00041DED /* IndicatorCollectionReusableView.xib */; };
+		6A93969228DF482D0007DB58 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6A93969128DF482D0007DB58 /* README.md */; };
 		6AD9A08F28DADA06007C0740 /* MyCatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9A08D28DADA06007C0740 /* MyCatCollectionViewCell.swift */; };
 		6AD9A09028DADA06007C0740 /* MyCatCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AD9A08E28DADA06007C0740 /* MyCatCollectionViewCell.xib */; };
 		6AD9A09328DADBD4007C0740 /* UploadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9A09128DADBD4007C0740 /* UploadCollectionViewCell.swift */; };
@@ -70,6 +71,7 @@
 		6A8CD67328D3409D00FC6909 /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
 		6A8FE60A28DAC08D00041DED /* IndicatorCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorCollectionReusableView.swift; sourceTree = "<group>"; };
 		6A8FE60B28DAC08D00041DED /* IndicatorCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndicatorCollectionReusableView.xib; sourceTree = "<group>"; };
+		6A93969128DF482D0007DB58 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6AD9A08D28DADA06007C0740 /* MyCatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCatCollectionViewCell.swift; sourceTree = "<group>"; };
 		6AD9A08E28DADA06007C0740 /* MyCatCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCatCollectionViewCell.xib; sourceTree = "<group>"; };
 		6AD9A09128DADBD4007C0740 /* UploadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		6A25DE5D28CCCBB700698431 = {
 			isa = PBXGroup;
 			children = (
+				6A93969128DF482D0007DB58 /* README.md */,
 				6A25DE6828CCCBB700698431 /* CatCat */,
 				6A25DE6728CCCBB700698431 /* Products */,
 			);
@@ -292,6 +295,7 @@
 				6A25DED928CD9E6000698431 /* MainViewController.xib in Resources */,
 				6AE25C0228D37346000CBCDB /* FavoriteCatsCollectionViewCell.xib in Resources */,
 				6A25DECF28CD901A00698431 /* FavoriteViewController.xib in Resources */,
+				6A93969228DF482D0007DB58 /* README.md in Resources */,
 				6A25DED328CD903500698431 /* MyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

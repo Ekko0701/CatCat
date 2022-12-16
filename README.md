@@ -2,24 +2,36 @@ CatCat
 ======
 [The Cat API](https://thecatapi.com/)를 사용해 고양이 이미지를 보고, 즐겨찾기를 통해 저장하고, 내 고양이 사진을 업로드 하는 앱
 
+### 스크린샷
+<p align="left">
+    <img src= "https://github.com/Ekko0701/CatCat/blob/main/CatCat/ScreenShots/Main.png" width="20%">
+    <img src= "https://github.com/Ekko0701/CatCat/blob/main/CatCat/ScreenShots/Favorite.png" width="20%">
+    <img src= "https://github.com/Ekko0701/CatCat/blob/main/CatCat/ScreenShots/My.png" width="20%">
+    <img src= "https://github.com/Ekko0701/CatCat/blob/main/CatCat/ScreenShots/Upload.png" width="20%">
+</p>
 
-### Cats 탭
+### 개발 상세 
+#### Main 탭
 * 고양이 이미지를 보여줌. (.GET)
 * 하트 버튼 터치시 즐겨찾기 추가 및 해제 가능. (.POST)
 
-### Favorite 탭
+#### Favorite 탭
 * 즐겨찾기에 추가된 고양이 확인 가능 (.GET)
 * 하트 버튼 터치시 즐겨찾기 추가 및 해제 가능. (.POST)
 
-### My 탭
+#### My 탭
 * 사용자가 업로드한 고양이 사진 확인 가능 (.GET)
 * 업로드 버튼 터치시 Camera 및 갤러리를 통해 고양이 이미지 업로드 가능 (POST(upload))
  
 Features
 --------
 * ```Storybaord``` 사용
-* ```MVC```
-* CollectionView ```Refresh``` 구현.  
+* ```MVC``` Architecture
+* CollectionView ```Refresh``` 구현  
+* CollectionView ```Infinity Scrolling``` 구현
+* ```Alamofire```를 이용한 ```Restful API``` 사용 ( ```GET```, ```POST```, ```UPLOAD```)
+* ```SDWebImage```를 사용해 URL Image 사용
+* Pinterest UI를 참고해 CollectionView를 ```Waterfall Layout``` 방식으로 구현. 
    
 <img width = "200" src = "https://user-images.githubusercontent.com/108163842/192106023-bdf2335a-b3e1-4927-8934-7ffc9bf087af.gif">
 
@@ -40,4 +52,4 @@ Alamofire를 이용해 Restful API 통신을 했다. Routing 방식으로 Reques
 2. [CHTCollectionViewWaterfallLayout](https://github.com/chiahsien/CHTCollectionViewWaterfallLayout)  
 Pinterest와 같은 Waterfall Layout으로 이미지를 보여주기 위해 사용하였다.  
 3. [SDWebImage](https://github.com/SDWebImage/SDWebImage)  
-URL image를 UIImageView에 세팅하기 위해 사용했다. 비슷한 다른 라이브러리와 다르게 Objective-c로 구현되어 있어 속도가 빠르다. 
+

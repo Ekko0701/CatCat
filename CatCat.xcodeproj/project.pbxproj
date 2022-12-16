@@ -61,6 +61,10 @@
 		6A25DED728CD9E6000698431 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		6A2E034928D34D9B00E91C8A /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
 		6A2EF27828DD89ED007526FD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		6A44136C294D2FB4001CD3DE /* Upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Upload.png; sourceTree = "<group>"; };
+		6A44136D294D2FB4001CD3DE /* Main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main.png; sourceTree = "<group>"; };
+		6A44136E294D2FB4001CD3DE /* My.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = My.png; sourceTree = "<group>"; };
+		6A44136F294D2FB4001CD3DE /* Favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Favorite.png; sourceTree = "<group>"; };
 		6A55232428D59A1A00587D67 /* PostParamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostParamModel.swift; sourceTree = "<group>"; };
 		6A8CD65928D31CD500FC6909 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6A8CD66328D3202A00FC6909 /* CatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 				6A25DE7228CCCBB700698431 /* Assets.xcassets */,
 				6A25DE7428CCCBB700698431 /* LaunchScreen.storyboard */,
 				6A25DE7728CCCBB700698431 /* Info.plist */,
+				6A44136B294D2F9C001CD3DE /* ScreenShots */,
 			);
 			path = CatCat;
 			sourceTree = "<group>";
@@ -183,6 +188,17 @@
 				6AD9A09228DADBD4007C0740 /* UploadCollectionViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		6A44136B294D2F9C001CD3DE /* ScreenShots */ = {
+			isa = PBXGroup;
+			children = (
+				6A44136D294D2FB4001CD3DE /* Main.png */,
+				6A44136F294D2FB4001CD3DE /* Favorite.png */,
+				6A44136E294D2FB4001CD3DE /* My.png */,
+				6A44136C294D2FB4001CD3DE /* Upload.png */,
+			);
+			path = ScreenShots;
 			sourceTree = "<group>";
 		};
 		6A8CD65828D31CC300FC6909 /* API */ = {

@@ -17,8 +17,8 @@ class FavoriteViewController: UIViewController {
     
     var favoriteCatArray = [FavoriteCats]()
     
-    var imageViewForSize = UIImageView()    // 📌 Test
-    var imageForSize = UIImage() // 📌 Test
+    var imageViewForSize = UIImageView()
+    var imageForSize = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -197,25 +197,3 @@ extension FavoriteViewController: FavoriteDelegate {
         }
     }
 }
-
-
-//  Delegate로 cell 내부의 버튼 이벤트를 FavoriteViewController에서 구현
-
-//  FavoriteView에서도 Delete API를 호출하자.
-//  버튼 default image는 heart.fill
-//
-
-//  View Will Appear에서 레이아웃을 설정하면 CHTColle... 라이브러리가 작동할까 ?
-
-
-//  에러 ))  .GET Favourite이 viewWillLoad에서 계속 호출됨. 배열에 계속 append함.
-
-/// Delete후에 바로 reload해서 cell을 없애지 말고
-/// 버튼 이미지만 변경하자. (ex. instagram) (.reloadItem 사용)
-
-
-
-
-
-///2022.09.19
-///- collectionVIew layout 다시 잡기

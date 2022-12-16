@@ -144,38 +144,6 @@ extension MyViewController: PHPickerViewControllerDelegate {
                 DispatchQueue.main.async {
                     self.imageToUpload = image as? UIImage
                     print("타입 \(type(of: self.imageToUpload))")
-                    //let imageData = self.imageToUpload?.jpegData(compressionQuality: 1)
-        
-                    
-                    // Multipart로 Encoding
-//                    let multipartEncoding: (MultipartFormData) -> Void = {multipartFormData in
-//                        multipartFormData.append(imageData!, withName: "file", fileName: "file.jpg", mimeType: "file/jpeg")
-//                    }
-                    
-                    
-                    //MARK: Router 이용하는 방법
-                    //var urlToCall: URLRequestConvertible?
-                    //urlToCall = ImageRouter.postCat
-
-//                    if let urlConvertible = urlToCall {
-//                        AF.upload(multipartFormData: { (multipartFormData) in
-//                                multipartFormData.append(imageData!, withName: "file", fileName: "file.jpg", mimeType: "file/jpeg") // jpeg 파일로 업로드
-//                            }
-//                                    , with: urlConvertible)
-//                            //.upload(multipartFormData: multipartEncoding, with: urlConvertible)
-//                            //.request(urlConvertible)
-//                            //.validate()
-//                            .uploadProgress(queue: .main, closure: { progress in
-//                                print("Upload Progress: \(progress.fractionCompleted)")
-//                            })
-//                            .responseData { response in
-//                                debugPrint(response)
-//                            }
-//                    }
-                    
-//                    AlamofireManager.shared.session.upload(multipartFormData: multipartEncoding, with: urlToCall!).responseData{ response in
-//                        debugPrint(response)
-//                    }
                     
                     //MARK: POST API CALL 성공
                     
@@ -220,7 +188,6 @@ extension MyViewController: UIImagePickerControllerDelegate, UINavigationControl
             self?.presentCamera()
         }
         let album = UIAlertAction(title: "앨범", style: .default) { [ weak self ] (_) in
-            //앨범을 선택했을 경우. (위의 PHPicker로 해주자. )
             self?.uploadCat()
         }
         
@@ -241,11 +208,6 @@ extension MyViewController: UIImagePickerControllerDelegate, UINavigationControl
         
         present(vc, animated: true, completion: nil)
     }
-    
-    //  image Picker에서 취소 버튼을 눌렀을 때 호출
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        dismiss(animated: true, completion: nil)
-//    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {
@@ -294,7 +256,5 @@ extension MyViewController: CHTCollectionViewDelegateWaterfallLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, columnCountFor section: Int) -> Int {
         return 2
     }
-    
-    
 }
 

@@ -24,9 +24,11 @@ class TabBarController: UITabBarController {
         favoriteVC.title = "Favorite"
         myVC.title = "My"
         
-        //let mainNC = UINavigationController(rootViewController: mainVC)
-        //let favoriteNC = UINavigationController(rootViewController: favoriteVC)
-        //let myNC = UINavigationController(rootViewController: myVC)
+        mainVC.tabBarItem.image = UIImage(systemName: "house.fill")
+        favoriteVC.tabBarItem.image = UIImage(systemName: "heart.fill")
+        myVC.tabBarItem.image = UIImage(systemName: "square.and.arrow.up.fill")
+        
+        self.tabBar.tintColor = .systemRed
         
         self.viewControllers = [mainVC, favoriteVC, myVC]
         

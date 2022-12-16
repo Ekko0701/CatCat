@@ -1,6 +1,8 @@
 CatCat
 ======
-[The Cat API](https://thecatapi.com/)를 사용  
+[The Cat API](https://thecatapi.com/)를 사용해 고양이 이미지를 보고, 즐겨찾기를 통해 저장하고, 내 고양이 사진을 업로드 하는 앱
+
+
 ### Cats 탭
 * 고양이 이미지를 보여줌. (.GET)
 * 하트 버튼 터치시 즐겨찾기 추가 및 해제 가능. (.POST)
@@ -15,9 +17,9 @@ CatCat
  
 Features
 --------
-* Storybaord 사용
-* MVC 지향
-* CollectionView **Refresh**구현.  
+* ```Storybaord``` 사용
+* ```MVC```
+* CollectionView ```Refresh``` 구현.  
    
 <img width = "200" src = "https://user-images.githubusercontent.com/108163842/192106023-bdf2335a-b3e1-4927-8934-7ffc9bf087af.gif">
 

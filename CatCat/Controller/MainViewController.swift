@@ -115,29 +115,6 @@ class MainViewController: UIViewController {
 
 //MARK: - CollectionView Delegate & DataSource
 extension MainViewController: UICollectionViewDelegate {
-    //MARK: Infinity Scroll 📌 완전 수정 필요
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.size.height {
-//            page += 1
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//
-//                print("인피니티\(self.page)")
-//                //self.requestAPI(requestPage: self.page + 1)
-//            })
-//        }
-//    }
-    
-    //  MARK: Infinite Scrolling
-    
-    ///  Set Footer ( Indicator)
-    ///  collectionView의 layout이 CHTCollectionViewWaterfallLayout이기 때문에 아래 CHTCo...layout에서 높이를 정의해줘야 함.
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-//        if self.isLoading {
-//            return CGSize.zero
-//        } else {
-//            return CGSize(width: collectionView.bounds.size.width, height: 55)
-//        }
-//    }
     
     //  Set the reueable view in the CollectionView Footer
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -177,13 +154,10 @@ extension MainViewController: UICollectionViewDelegate {
         if !self.isLoading {
             self.isLoading = true
             DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) { // 2sec delay
-                //sleep(3)
                 // API Request
                 self.page += 1
-                //self.requestAPI(requestPage: self.page)
                 DispatchQueue.main.async {
                     self.requestAPI(requestPage: self.page)
-                    //self.collectionView.reloadData()
                     self.isLoading = false
                 }
             }
@@ -262,7 +236,7 @@ extension MainViewController: PostFavoriteCatDelegate {
             catArray[indexPath].isFavorite = true
         } else {
             //  .DELETE API CALL
-            favoriteDeleteRequestAPI(favourite_id: catArray[indexPath].favourite_id!) // 🚨 Optional 수정 필요 🚨 //
+            favoriteDeleteRequestAPI(favourite_id: catArray[indexPath].favourite_id!)
             catArray[indexPath].isFavorite = false
         }
         
@@ -287,7 +261,7 @@ extension MainViewController: PostFavoriteCatDelegate {
                 .responseDecodable(of: PostFavoriteResponse.self) { response in
                     switch response.result {
                     case.success(let result):
-                        self.catArray[indexPath].favourite_id = String(result.id!) // 🚨 Optional 수정 필요 🚨 //
+                        self.catArray[indexPath].favourite_id = String(result.id!)
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
@@ -315,26 +289,3 @@ extension MainViewController: PostFavoriteCatDelegate {
         }
     }
 }
-
-///  1. MainView Load
-///  - cat request
-///  - favorite cat request
-///
-///  2. press favorite button
-///  - post favorite cat
-///  - favorite cat request again ( 버튼 눌렀다가 취소하는 경우 request delete api ) -> favourite_id가 필요하기 favorite cat 재호출 필요
-
-/// 2-1 (성공 )
-///  ! favorite post response에 있는 favourite_id를 이용하는 방법 ?
-///   - cat Model에 favorite_id라는 옵셔널 속성 주가
-///   - if isFavorite 이라면 위의 속성을 넣어 delete favorite 함수 호출
-
-
-
-
-///2022.09.19 수정 필요
-///1. main에서 favorite get api를 호출해서 image_id를 가져온다.
-///2. favorite get api에서 가져온 image_id가 image .get으로 가져온 image_id에 있는지 확인 후 isFavorite 속성 설정 후 reload 필요.
-///
-///3. collectionView refresh 추가 (feat. paging)
-///

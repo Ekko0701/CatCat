@@ -48,7 +48,3 @@ struct PostFavoriteResponse: Decodable {
     var id: Int? 
 }
 
-
-///  My
-/// .POST
-

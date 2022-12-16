@@ -31,18 +31,13 @@ Features
 * CollectionView ```Infinity Scrolling``` 구현
 * ```Alamofire```를 이용한 ```Restful API``` 사용 ( ```GET```, ```POST```, ```UPLOAD```)
 * ```SDWebImage```를 사용해 URL Image 사용
-* Pinterest UI를 참고해 CollectionView를 ```Waterfall Layout``` 방식으로 구현. 
+* Pinterest UI를 참고해 CollectionView를 ```Waterfall Layout``` 방식으로 구현.
+* 사용자의 이미지를 업로드 하기 위해 ```PHPicker```와 ```UIImagePickerController```를 사용
    
-<img width = "200" src = "https://user-images.githubusercontent.com/108163842/192106023-bdf2335a-b3e1-4927-8934-7ffc9bf087af.gif">
-
-
-* CollectionView **Infinite Scrolling** 구현  
-
-<img width = "200" src = "https://user-images.githubusercontent.com/108163842/192105064-0c85673a-774a-4221-aa9e-9882d097b3d4.gif">
-    
-      
-* Image Upload를 위해 UIImagePickerController()대신에 더 간결한 PHPicker를 사용함
-* PHPicker는 카메라를 지원하지 않기 때문에 UIImagePickerController도 사용함.
+ <p align="left">
+    <img src= "https://user-images.githubusercontent.com/108163842/192106023-bdf2335a-b3e1-4927-8934-7ffc9bf087af.gif" width="20%">
+    <img src= "https://user-images.githubusercontent.com/108163842/192105064-0c85673a-774a-4221-aa9e-9882d097b3d4.gif" width="20%">
+</p>
 
 
 Open Source Library
